@@ -11,10 +11,10 @@
         <th>Фото</th>
     </tr>
     <?php foreach ($items as $item): ?>
-    <tr>
-        <td><?php echo $item['title']; ?></td>
-        <td><img src="<?php echo $item['path']; ?> " style="max-width: 200px"></td>
-    </tr>
+        <tr>
+            <td><?php echo $item['title']; ?></td>
+            <td><img src="<?php echo $item['path']; ?> " style="max-width: 200px"></td>
+        </tr>
     <?php endforeach; ?>
 </table>
 <a href="/add.php">Добавить фото</a>

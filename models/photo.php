@@ -1,8 +1,8 @@
 <?php
 
-require_once __DIR__.'/../functions/sql.php';
+require_once __DIR__ . '/../functions/sql.php';
 
-function photo_get_all ()
+function photo_get_all()
 {
     $sql = 'select * from images';
     return sql_query($sql);
@@ -15,8 +15,8 @@ function photo_get_all ()
     ];*/
 }
 
-function photo_insert ($data)
+function photo_insert($data)
 {
-    $sql = "insert into images (title, path) values ('".$data['title']."', '".$data['image']."')";
+    $sql = "insert into images (title, path) values ('" . $data['title'] . "', '" . $data['image'] . "')";
     sql_exec($sql);
 }

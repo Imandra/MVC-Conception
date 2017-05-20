@@ -1,26 +1,26 @@
 <?php
 
-require_once __DIR__.'/functions/file.php';
-require_once __DIR__.'/models/photo.php';
+require_once __DIR__ . '/functions/file.php';
+require_once __DIR__ . '/models/photo.php';
 
-if (!empty($_POST)){
+if (!empty($_POST)) {
     $data = [];
-    if (!empty($_POST['title'])){
+    if (!empty($_POST['title'])) {
         $data['title'] = $_POST['title'];
     }
 
-    if (!empty($_FILES)){
+    if (!empty($_FILES)) {
         $res = file_upload('image');
-        if (false !== $res){
+        if (false !== $res) {
             $data['image'] = $res;
         }
     }
     //var_dump($data);die();
-    if (isset($data['title'])&& isset($data['image'])){
+    if (isset($data['title']) && isset($data['image'])) {
         photo_insert($data);
         header('Location: /');
         die();
     }
 }
 
-include __DIR__.'/views/add.php';
+include __DIR__ . '/views/add.php';
