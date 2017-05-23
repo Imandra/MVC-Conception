@@ -2,17 +2,21 @@
 
 function sql_connect()
 {
-    mysql_connect('localhost', 'root', 'sf2015');
-    mysql_select_db('test');
+    try {
+        $pdo = new PDO('mysql:host=localhost;dbname=test', 'root', 'sf2015');
+        return $pdo;
+    } catch (PDOException $e) {
+        die("Невозможно соединиться с базой данных, ошибка: ".$e->getMessage());
+    }
 }
 
 function sql_query($sql)
 {
-    sql_connect();
-    $res = mysql_query($sql);
+    $pdo = sql_connect();
+    $res = $pdo->query($sql);
 
     $ret = [];
-    while (false !== $row = mysql_fetch_assoc($res)) {
+    while (false !== $row = $res->fetch()) {
         $ret[] = $row;
     }
     return $ret;
@@ -20,6 +24,6 @@ function sql_query($sql)
 
 function sql_exec($sql)
 {
-    sql_connect();
-    mysql_query($sql);
+    $pdo = sql_connect();
+    $pdo->exec($sql);
 }

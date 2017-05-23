@@ -4,7 +4,7 @@ require_once __DIR__ . '/../functions/sql.php';
 
 function photo_get_all()
 {
-    $sql = 'select * from images';
+    $sql = 'SELECT * FROM images';
     return sql_query($sql);
 
     //это заглушка, без БД, просто вывод фейковых данных
@@ -17,6 +17,6 @@ function photo_get_all()
 
 function photo_insert($data)
 {
-    $sql = "insert into images (title, path) values ('" . $data['title'] . "', '" . $data['image'] . "')";
+    $sql = "INSERT INTO images (title, path) VALUES ('" . $data['title'] . "', '" . $data['image'] . "')";
     sql_exec($sql);
 }
