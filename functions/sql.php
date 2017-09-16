@@ -3,7 +3,7 @@
 function sql_connect()
 {
     try {
-        $pdo = new PDO('mysql:host=localhost;dbname=test', 'root', 'sf2015');
+        $pdo = new PDO('mysql:host=localhost;dbname=test', 'root', '');
         return $pdo;
     } catch (PDOException $e) {
         die("Невозможно соединиться с базой данных, ошибка: ".$e->getMessage());
